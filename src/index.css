@@ -254,7 +254,7 @@ a{
     background-color: rgb(41, 50, 71);
     background-image: linear-gradient(290deg,rgb(212, 192, 127),rgba(0, 0, 0, 0.959));
     position: fixed;
-    right: -200px;
+    right: -250px;
     transition: all 0.5s;
    border-radius:20px  5px 0px 0px;
    height:100%;
