@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import {auth,provider} from '../../../config.js'
-import {signInWithRedirect} from 'firebase/auth'
+import {signInWithPopup} from 'firebase/auth'
 import axios from 'axios';
 import google from '../../../assets/google.png'
 import { useNavigate } from 'react-router-dom';
 const SignInGoogle = () => {
   const nav=useNavigate();
     const GoogleHandler=()=>{
-    signInWithRedirect(auth,provider).then((data)=>{
+    signInWithPopup(auth,provider).then((data)=>{
       const gmail=data.user.email;
       const name=data.user.displayName;
       axios.post("https://iotex-ajgn.vercel.app/users/gmail",{userName:name,userMail:gmail},{headers: {'Content-Type': 'application/json'}})
