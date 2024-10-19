@@ -123,7 +123,7 @@ const Examples = () => {
               <p className="comment">{`//Ex: 25b25ah744j561752a5`}</p>
               <p className="new">{` int ledBright=getdeviceRange("device_key"); `}</p>
               <p className="comment">{`//use output for your own actuator`}</p>
-              <p className="new">{`digitalWrite(D0,ledBright*5);`}</p>
+              <p className="new">{`analogWrite(D0,ledBright*51);`}</p>
               <p>{`} `}</p>
             </code>
           </div>
