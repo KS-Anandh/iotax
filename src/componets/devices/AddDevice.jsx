@@ -5,6 +5,7 @@ import { GlobalContext } from "../../globalContext/ContextData";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Overlay from "../Overlay";
 
 const AddDevice = () => {
   const { id } = useParams();
@@ -44,6 +45,7 @@ const AddDevice = () => {
           }, 2000);
         })
         .catch((err) => {
+          setLoad(false);
           toast.error("Something went wrong", {
             position: "top-right",
             autoClose: 3000,
@@ -107,6 +109,7 @@ const AddDevice = () => {
         pauseOnHover
         theme="light"
       />
+      {isLoad?<Overlay/>:""}
     </div>
   );
 };
