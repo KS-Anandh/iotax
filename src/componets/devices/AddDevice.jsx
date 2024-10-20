@@ -88,7 +88,7 @@ const AddDevice = () => {
       />
       <div style={{ display: "flex", alignItems: "center", columnGap: "20px",margin:"20px 0px" }}>
           {
-            isLoad?<div style={{display:"flex",alignItems:"center",justifyContent:"center",width:"100%"}}><center style={{fontSize:"15px"}}>Loading ....</center></div>:( <button className="login-btn" onClick={addDeviceHandler}>
+            isLoad?<button className="login-btn" style={{background:"red"}}>Loading...</button>:( <button className="login-btn" onClick={addDeviceHandler}>
               Add Device
             </button>)
           }
