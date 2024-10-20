@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Overlay from "./Overlay";
 
 const Register = () => {
   const nav=useNavigate();
@@ -14,6 +15,7 @@ const Register = () => {
   const [userName, setUserName] = useState(null);
   const [verifyPass, setVerifyPass] = useState(-1);
   const [user, setUser] = useState(-1);
+  const[isLoading,setLoading]=useState(false);
   const OtpSender = async () => {
     const GeneratedOtp=Math.floor(Math.random()*10000)
     setOtp(GeneratedOtp);
@@ -48,6 +50,7 @@ const Register = () => {
   const registerHandler = async () => {
     if (parseInt(userOtp)=== otp) {
       try {
+        setLoading(true);
         axios
           .post("https://iotex-ajgn.vercel.app/users/register", {
             userName,
@@ -55,6 +58,7 @@ const Register = () => {
             userPass: pass,
           })
           .then((res) => {
+            setLoading(false);
             toast.success("Registration Success", {
               position: "top-center",
               autoClose: 5000,
@@ -70,6 +74,7 @@ const Register = () => {
               },2000)             
           })
           .catch((err) => {
+            setLoading(false);
             toast.error("Something went wrong", {
               position: "top-center",
               autoClose: 5000,
@@ -176,6 +181,7 @@ draggable
 pauseOnHover
 theme="light"
 />
+      {isLoading?<Overlay/>:""}
     </div>
   );
 };
