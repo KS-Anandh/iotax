@@ -70,10 +70,11 @@ const Project = () => {
         headers: { token: token },
       })
       .then((res) => {
-        setLoading(false);
         setProjects(res.data);
+        setLoading(false);
       })
       .catch((err) => {
+         setLoading(false);
         console.log("error");
       });
   }, []);
