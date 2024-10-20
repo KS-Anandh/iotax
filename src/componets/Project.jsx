@@ -28,6 +28,7 @@ const Project = () => {
             progress: undefined,
             theme: "light",
           });
+          nav("/projects");
           setProjects(projects.filter((item) => item._id != id));
         })
         .catch((err) => {
