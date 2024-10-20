@@ -6,6 +6,7 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SignInGoogle from './devices/SignInGoogle'
+import Overlay from './Overlay'
 
 const Login = ({setPage}) => {
   const nav=useNavigate()
@@ -13,6 +14,7 @@ const {navState,setNavState}=useContext(GlobalContext);
 const [name,setName]=useState(null);
 const [pass,setPass]=useState(null);
 const [mail,setMail]=useState(null);
+const [isLoading,setLoading]=useState(false);
   useEffect(()=>{
     setNavState(1);
     if(localStorage.getItem("token")){
@@ -21,9 +23,11 @@ const [mail,setMail]=useState(null);
   },[])
   const loginHandler=async()=>{
     try{
+    setLoading(true);
     await axios.post("https://iotex-ajgn.vercel.app/users/login",{userMail:name.toLowerCase(),userPass:pass})
     .then((res)=>{
       localStorage.setItem("token",res.data);
+      setLoading(false);
       toast.success('Login Success', {
         position: "top-center",
         autoClose:3000,
@@ -39,6 +43,7 @@ const [mail,setMail]=useState(null);
       },3000)
     })
     .catch((err)=>{
+      setLoading(false);
       toast.error("Invalid Credintial", {
         position: "top-center",
         autoClose:3000,
@@ -78,7 +83,7 @@ const [mail,setMail]=useState(null);
    
     {/* </Link>  */}
       
-      <SignInGoogle/>
+      <SignInGoogle setLoading={setLoading}/>
       <ToastContainer
 position="top-center"
 autoClose={3000}
@@ -91,6 +96,7 @@ draggable
 pauseOnHover
 theme="light"
 />
+      {isLoading?<Overlay/>:""}
     </div>
     
     </>
