@@ -58,7 +58,6 @@ const Register = () => {
             userPass: pass,
           })
           .then((res) => {
-            setLoading(false);
             toast.success("Registration Success", {
               position: "top-center",
               autoClose: 5000,
@@ -70,6 +69,7 @@ const Register = () => {
               theme: "light"
               });
               setTimeout(()=>{
+                setLoading(false);
                 nav("/")
               },2000)             
           })
