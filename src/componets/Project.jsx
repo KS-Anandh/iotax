@@ -28,8 +28,8 @@ const Project = () => {
             progress: undefined,
             theme: "light",
           });
-          nav("/projects");
           setProjects(projects.filter((item) => item._id != id));
+          nav("/projects");
         })
         .catch((err) => {
           toast.error("Something went wrong", {
