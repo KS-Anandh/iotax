@@ -68,7 +68,7 @@ const AddProject = () => {
       />
       <div style={{ display: "flex", alignItems: "center", columnGap: "20px",margin:"20px 0px" }}>
           {
-            isLoad?<div style={{display:"flex",alignItems:"center",justifyContent:"cente"}}><center style={{fontSize:"15px"}}>Loading ....</center></div>:( <button className="login-btn" onClick={handler}>
+            isLoad?<button className="login-btn" style={{background:"red"}}>Loading...</button>:( <button className="login-btn" onClick={handler}>
               Create Project
             </button>)
           }
