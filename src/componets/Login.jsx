@@ -27,7 +27,6 @@ const [isLoading,setLoading]=useState(false);
     await axios.post("https://iotex-ajgn.vercel.app/users/login",{userMail:name.toLowerCase(),userPass:pass})
     .then((res)=>{
       localStorage.setItem("token",res.data);
-      setLoading(false);
       toast.success('Login Success', {
         position: "top-center",
         autoClose:3000,
@@ -39,6 +38,7 @@ const [isLoading,setLoading]=useState(false);
         theme: "light"
         });
       setTimeout(()=>{
+        setLoading(false);
         nav("/projects")
       },3000)
     })
