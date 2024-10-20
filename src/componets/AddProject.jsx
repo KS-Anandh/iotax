@@ -5,6 +5,7 @@ import { GlobalContext } from "../globalContext/ContextData";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Overlay from "./Overlay";
 
 const AddProject = () => {
   const navigate = useNavigate();
@@ -88,6 +89,7 @@ const AddProject = () => {
         pauseOnHover
         theme="light"
       />
+      {isLoad?<Overlay/>:""}
     </div>
   );
 };
