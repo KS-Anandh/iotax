@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo (2).png'
 import cross from '../../assets/cross.png'
 import profile from '../../assets/login.jpeg'
 import more from '../../assets/menu.png'
