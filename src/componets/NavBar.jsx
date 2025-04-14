@@ -30,7 +30,7 @@ const [userName,setUserName]=useState(null);
     <>
     <div className='navBar' >
        <div style={{display:"flex",alignItems:"center",justifyContent:"space-around",columnGap:"30px",height:"120px"}}>
-       <img src={logo} alt="" width={80} height={80} />
+       <img src={logo} alt="" width={80} height={110} />
        <h3 style={{color:"rgb(204, 3, 93)",fontSize:"25px"}}><span style={{color:"rgb(44, 6, 50)"}}>IOT</span>AP</h3>
        </div>
        <input id="checkBox" defaultChecked={true} onChange={e=> setNavBar(e.target.checked)} type='checkBox' style={{display:"none"}}/>
